@@ -197,4 +197,5 @@ ul li a:hover::before {
 
 .item-cart__quantity {
     height: 25%;
+    width: 15%;
 }
