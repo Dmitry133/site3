@@ -1,8 +1,7 @@
 <h3>Catalog page</h3>
-
 <form action="index.php?page=1" method="post">
     <div>
-        <select name="catid" class="mb-3" onchange="getItemsCat(this.value)">
+       <select name="catid" class="mb-3" id="catid" onchange="getItemsCat(this.value)">
             <?php
             echo "<option value='0'>Select category</option>";
 
@@ -29,13 +28,31 @@ echo '</div>';
     ?>
 </form>
 <script>
+
     function getItemsCat(cat) {
+        let res = {
+            loader: $('<div />', {class:'loader'}),
+            container: $('#result')
+        };
+
+            $.ajax({
+                 url:'catalog.php',
+                beforeSend:function () {
+                     res.container.append(res.loader);
+            },
+            success: function (data) {
+                res.container.html(data);
+                res.container.find(res.loader).remove();
+            }
+        });
+
         if(window.XMLHttpRequest) {
             ac = new XMLHttpRequest();
         } else {
             ac = new ActiveXObject('Microsoft.XMLHTTP');
         }
         ac.onreadystatechange = function () {
+
             if(ac.readyState === 4 && ac.status === 200) {
                 document.getElementById('result').innerHTML = ac.responseText;
             }
@@ -44,6 +61,8 @@ echo '</div>';
         ac.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         ac.send("cat="+cat);
     }
+
+
 
 
     function createCookie(ruser, id) {
