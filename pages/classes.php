@@ -162,7 +162,7 @@ class Item {
     static function getItems($catid = 0) {
         try {
             $pdo = Tools::connect();//если категория не выбарна = 0 то выбираем все товары
-            if ($catid === 0) {
+            if ($catid == 0) {
                 $ps = $pdo->query("SELECT * FROM items");
             } else {
                 $ps = $pdo->prepare("SELECT * FROM items WHERE catid=?");

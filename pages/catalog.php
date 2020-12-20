@@ -3,8 +3,9 @@
 <form action="index.php?page=1" method="post">
     <div>
         <select name="catid" class="mb-3" onchange="getItemsCat(this.value)">
-            <option value="0">Select category</option>
             <?php
+            echo "<option value='0'>Select category</option>";
+
             $pdo=Tools::connect();
             $ps=$pdo->prepare("SELECT * FROM categories");
             $ps->execute();
@@ -30,18 +31,18 @@ echo '</div>';
 <script>
     function getItemsCat(cat) {
         if(window.XMLHttpRequest) {
-            ao = new XMLHttpRequest();
+            ac = new XMLHttpRequest();
         } else {
-            ao = new ActiveXObject('Microsoft.XMLHTTP');
+            ac = new ActiveXObject('Microsoft.XMLHTTP');
         }
-        ao.onreadystatechange = function () {
-            if(ao.readyState === 4 && ao.status === 200) {
-                document.getElementById('result').innerHTML = ao.responseText;
+        ac.onreadystatechange = function () {
+            if(ac.readyState === 4 && ac.status === 200) {
+                document.getElementById('result').innerHTML = ac.responseText;
             }
         }
-        ao.open('POST', 'pages/lists.php', true);
-        ao.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        ao.send("cat="+cat);
+        ac.open('POST', 'pages/lists.php', true);
+        ac.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        ac.send("cat="+cat);
     }
 
 
