@@ -19,7 +19,7 @@ if (!isset($_POST['addbtn'])) {
 
         ?>
         <div class="form-group mt-3">
-            <label for="category">Category:(вот мы смотрим созданые категории дз32! а сверху добавляем!в теге option встроенный поиск уже есть!)
+            <label for="category">Category:
                 <select name="catid" id="category">
                     <?php
                         $pdo = Tools::connect();
