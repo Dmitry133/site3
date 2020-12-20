@@ -1,0 +1,200 @@
+
+
+ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+ul li {
+    list-style: none;
+}
+ul li a {
+    position: relative;
+    display: block;
+    margin: 0 10px;
+    padding: 5px 10px;
+    color: #000000;
+    font-size: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    overflow: hidden;
+}
+ul li a::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: #2196f3;
+    transition: 0.5s;
+}
+ul li a:hover {
+    color: #fff;
+}
+ul li a:hover::before {
+    animation: animate .5s linear forwards;
+}
+/*добавить вызов только если нет класса актив*/
+@keyframes animate {
+    0% {
+        top: calc(50% - 2px);
+        left: -100%;
+        height: 4px;
+        z-index: 1;
+    }
+    50% {
+        top: calc(50% - 2px);
+        left: 0;
+        height: 4px;
+        z-index: 1;
+    }
+    100% {
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.item-card {
+    box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+    border-radius: 10px;
+    height: 450px;
+
+}
+
+.item-card__header {
+    width: 99%;
+    height: 7%;
+
+}
+
+.item-card__name {
+    font-size: 1.2em;
+    color: #4E4E4E;
+
+}
+
+.item-card__img {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    overflow: hidden;
+}
+
+.item-card__price {
+    margin-top: 1rem;
+    text-decoration-line: underline;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.item-card__info {
+   height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+/*.item-card__info:hover {*/
+/*    overflow: inherit;*/
+/*    text-overflow: inherit;*/
+/*    white-space: inherit;*/
+/*    height: auto;*/
+/*}*/
+
+
+.item-cart {
+    height: 120px;
+    border-radius: 10px;
+    border:1px solid #969696;
+}
+
+.item-cart__name {
+    overflow: hidden;
+    margin-top: 25px;
+    font-size: 1.5rem;
+    text-decoration-line: underline;
+
+}
+.item-cart__img {
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.item-cart__price {
+    color: red;
+    text-decoration: underline;
+    margin-top: 30px;
+    font-size: 2rem;
+}
+
+.item-cart__btn {
+    height: 55px;
+    width: 150px;
+    margin-top: 30px;
+}
+
+#message-success{
+    position: fixed;
+    border-radius: 10px;
+    padding: 10px;
+    width: 299px;
+    top:35%;
+    left: 45%;
+    text-align: center;
+    color: black;
+    right: 20px;
+    background-color:#79ad68;
+    font-size: 1.5rem;
+    z-index: 999;
+}
+
+.iteminfo-card {
+    box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
+    border-radius: 10px;
+    height: 500px;
+    width: 100%;
+
+}
+
+.iteminfo-card__header {
+    width: 100%;
+    height: 70px;
+
+
+}
+
+.iteminfo-card__name {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.itemifo-card__price {
+    color: red;
+    text-decoration: underline;
+    font-size: 2rem;
+}
+
+.iteminfo-card__button {
+    margin-left: 43%;
+    width: 150px;
+}
+
+.itemifo-card__img {
+    width: 250px;
+    height: 250px;
+}
+
+.item-cart__quantity {
+    height: 25%;
+}
