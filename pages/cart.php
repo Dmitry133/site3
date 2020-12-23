@@ -7,7 +7,6 @@ foreach ($_COOKIE as $k => $v) {
         $id = substr($k, strpos($k, "_") + 1);
         $item = Item::fromDb($id);
         $total += $item->pricesale;
-        //$quantity = $item->$_POST['quantity'];
         $item->drawItemAtCart();
     }
 }
@@ -20,17 +19,19 @@ echo "<div id='message'></div>";
 
 // обработчик для оформления заказов
 if (isset($_POST['suborder'])) {
-//var_dump($_POST['quantity']);
-//return false;
-    //не знаю как сделать выбор количества товаров к покупке!
+    $id_result=[];
+    $quan = $_POST['quantity'];
+    foreach ($quan as $key => $value){
+        $quan = $quan[$key];
+
+
     foreach ($_COOKIE as $k => $v) {
         if (substr($k, 0, strpos($k, "_")) === 'cart') {
             $id = substr($k, strpos($k, "_") + 1);
             $item = Item::fromDb($id);
-            array_push($id_result, $item->sale($_POST['quantity']));
-            var_dump($_POST['quantity']);
-        }
-    }
+            array_push($id_result, $item->sale($quan));
+        }}}
+
     // Item::SMTP($id_result);
 }
 ?>

@@ -297,7 +297,7 @@ class Item {
             echo "<img src='{$this->imagepath}' alt='image' class='col-2 img-fluid item-cart__img'>";
             echo "<span class='col-2 item-cart__name'>$this->itemname</span>";
             echo "<p>Осталось:$this->quantity</p>";
-            echo "<input name='quantity[]'  id='quantity' type='number' placeholder='Сколько шт.' class='item-cart__quantity' min='1' max='$this->quantity'>";
+            echo "<input name='quantity[]' id='quantity' type='number' placeholder='Сколько шт.' class='item-cart__quantity' min='1' max='$this->quantity'>";
             echo "<span class='col-2 item-cart__price'>$this->pricesale RUB</span>";
             $ruser = 'cart_'.$this->id;
             echo "<button class='btn btn-danger item-cart__btn' onclick=eraseCookie('".$ruser."')>Delete</button>";
